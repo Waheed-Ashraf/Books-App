@@ -10,7 +10,6 @@ class FeatueredBooksListView extends StatelessWidget {
       height: MediaQuery.of(context).size.height * .3,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: 1,
           itemBuilder: (context, index) {
             return const FeaturedBooksItem();
           }),
