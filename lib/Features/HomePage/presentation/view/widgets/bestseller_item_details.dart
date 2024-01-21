@@ -14,7 +14,7 @@ class BestSellerItemDetails extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Harry potter  ',
+            'Harry potter potterpotterpotterpotterpotterpotter',
             style: Styles.textStyle20.copyWith(
               fontFamily: kGtSectraFine,
             ),
