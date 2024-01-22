@@ -1,6 +1,6 @@
-import 'package:books_app/Features/HomePage/presentation/view/widgets/bestseller_list_view.dart';
-import 'package:books_app/Features/HomePage/presentation/view/widgets/custom_appbar.dart';
-import 'package:books_app/Features/HomePage/presentation/view/widgets/featuered_books_list.dart';
+import 'package:books_app/Features/Home/presentation/view/widgets/bestseller_list_view.dart';
+import 'package:books_app/Features/Home/presentation/view/widgets/custom_appbar.dart';
+import 'package:books_app/Features/Home/presentation/view/widgets/featuered_books_list.dart';
 import 'package:books_app/core/utils/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -13,7 +13,6 @@ class HomePage extends StatelessWidget {
     return const Scaffold(
         body: SafeArea(
       child: CustomScrollView(
-        physics: BouncingScrollPhysics(),
         slivers: [
           SliverToBoxAdapter(
             child: Column(
@@ -42,7 +41,7 @@ class HomePage extends StatelessWidget {
           ),
           SliverFillRemaining(
             child: BestSellerListView(),
-          )
+          ),
         ],
       ),
     ));

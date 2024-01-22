@@ -1,4 +1,4 @@
-import 'package:books_app/Features/HomePage/presentation/view/widgets/bestseller_rating.dart';
+import 'package:books_app/Features/Home/presentation/view/widgets/bestseller_rating.dart';
 import 'package:books_app/constent.dart';
 import 'package:books_app/core/utils/text_style.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,7 @@ class BestSellerItemDetails extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Harry potter potterpotterpotterpotterpotterpotter',
+            'Harry The Jungle Book ',
             style: Styles.textStyle20.copyWith(
               fontFamily: kGtSectraFine,
             ),

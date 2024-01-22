@@ -1,4 +1,4 @@
-import 'package:books_app/Features/HomePage/presentation/view/widgets/featuered_books_item.dart';
+import 'package:books_app/Features/Home/presentation/view/widgets/featuered_books_item.dart';
 import 'package:flutter/material.dart';
 
 class FeatueredBooksListView extends StatelessWidget {
