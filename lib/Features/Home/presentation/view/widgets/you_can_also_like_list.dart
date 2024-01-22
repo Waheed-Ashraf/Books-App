@@ -7,13 +7,13 @@ class YouCanAlsoLikeList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 112,
+      height: MediaQuery.of(context).size.height * .15,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: 10,
           itemBuilder: ((context, index) {
             return const Padding(
-              padding: EdgeInsets.only(right: 8),
+              padding: EdgeInsets.only(left: 6),
               child: CustomYouMayLikeItemImage(),
             );
           })),

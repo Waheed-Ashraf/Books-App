@@ -9,9 +9,11 @@ class BestSellerListView extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: ListView.builder(
+          shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
+          itemCount: 10,
           itemBuilder: (context, index) {
-            return const BestSellerItem();
+            return const BookItem();
           }),
     );
   }
