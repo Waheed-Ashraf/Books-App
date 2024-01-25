@@ -23,7 +23,7 @@ class BooksApp extends StatelessWidget {
         BlocProvider(
           create: (context) => FeatuerdBooksCubitCubit(
             getIt.get<HomeRepoimp>(),
-          ),
+          )..getFeatuerdBooks(),
         ),
         BlocProvider(
           create: (context) => NewestBooksCubit(
