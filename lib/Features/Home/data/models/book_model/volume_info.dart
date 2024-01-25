@@ -45,7 +45,7 @@ class VolumeInfo extends Equatable {
   final List<String>? categories;
 
 
-  final dynamic averageRating;
+  final num? averageRating;
 
 
   final int? ratingsCount;
@@ -157,7 +157,7 @@ class VolumeInfo extends Equatable {
 
         categories: (json['categories'] as List<dynamic>?)?.cast<String>(),
 
-        averageRating: json['averageRating'] as dynamic,
+        averageRating: json['averageRating'],
 
         ratingsCount: json['ratingsCount'] as int?,
 

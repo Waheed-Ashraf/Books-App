@@ -21,7 +21,7 @@ class FeatueredBooksListView extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemCount: state.bookItemModel.length,
                   itemBuilder: (context, index) {
-                    return FeaturedBooksItem(
+                    return BooksImageItem(
                       imageUrl: state
                           .bookItemModel[index].volumeInfo.imageLinks.thumbnail,
                     );

@@ -1,11 +1,27 @@
+import 'package:books_app/Features/Home/data/models/book_model/book_item_model.dart';
 import 'package:books_app/Features/Home/presentation/view/widgets/bestseller_item_details.dart';
+import 'package:books_app/Features/Home/presentation/view/widgets/featuered_books_item.dart';
 import 'package:books_app/core/utils/app_router.dart';
-import 'package:books_app/core/utils/assets_data.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BookItem extends StatelessWidget {
-  const BookItem({super.key});
+  const BookItem({
+    super.key,
+    required this.bookModel,
+    // required this.imageUrl,
+    // required this.bookTitle,
+    // required this.bookAuter,
+    // required this.bookRate,
+    // required this.pageNumber
+  });
+
+  // final String imageUrl;
+  // final String bookTitle;
+  // final String bookAuter;
+  // final dynamic bookRate;
+  // final int pageNumber;
+  final BookItemModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -20,21 +36,16 @@ class BookItem extends StatelessWidget {
           child: Row(
             children: [
               AspectRatio(
-                aspectRatio: 2.7 / 4,
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    image: DecorationImage(
-                      fit: BoxFit.fill,
-                      image: AssetImage(AssetsData.testImage),
-                    ),
-                  ),
-                ),
+                aspectRatio: 2.8 / 4,
+                child: BooksImageItem(
+                    imageUrl: bookModel.volumeInfo.imageLinks.thumbnail),
               ),
               const SizedBox(
-                width: 30,
+                width: 25,
               ),
-              const BestSellerItemDetails(),
+              BestSellerItemDetails(
+                bookModel: bookModel,
+              ),
             ],
           ),
         ),

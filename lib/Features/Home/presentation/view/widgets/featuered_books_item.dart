@@ -3,8 +3,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class FeaturedBooksItem extends StatelessWidget {
-  const FeaturedBooksItem({super.key, required this.imageUrl});
+class BooksImageItem extends StatelessWidget {
+  const BooksImageItem({super.key, required this.imageUrl});
 
   final String imageUrl;
 

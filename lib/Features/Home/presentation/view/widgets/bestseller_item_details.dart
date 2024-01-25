@@ -1,11 +1,16 @@
+import 'package:books_app/Features/Home/data/models/book_model/book_item_model.dart';
 import 'package:books_app/Features/Home/presentation/view/widgets/bestseller_rating.dart';
 import 'package:books_app/constent.dart';
 import 'package:books_app/core/utils/text_style.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerItemDetails extends StatelessWidget {
-  const BestSellerItemDetails({super.key});
+  const BestSellerItemDetails({
+    super.key,
+    required this.bookModel,
+  });
 
+  final BookItemModel bookModel;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -14,27 +19,32 @@ class BestSellerItemDetails extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Harry The Jungle Book ',
+            bookModel.volumeInfo.title!,
             style: Styles.textStyle20.copyWith(
               fontFamily: kGtSectraFine,
             ),
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
           ),
-          const Text(
-            'Destofisky',
+          Text(
+            bookModel.volumeInfo.authors![0],
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: Styles.textStyle14,
           ),
-          const Row(
+          Row(
             children: [
               Text(
-                r'999 $',
-                style: Styles.textStyle20,
+                "Free",
+                style: Styles.textStyle20.copyWith(
+                  color: const Color(0xffFFDD4F),
+                ),
               ),
-              Spacer(),
-              BestSellerRating(),
+              const Spacer(),
+              BestSellerRating(
+                bookPadges: bookModel.volumeInfo.ratingsCount ?? 0,
+                bookRate: bookModel.volumeInfo.averageRating ?? 0,
+              ),
             ],
           ),
         ],

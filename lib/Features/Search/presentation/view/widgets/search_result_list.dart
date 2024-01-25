@@ -11,7 +11,12 @@ class SearchResultListView extends StatelessWidget {
         shrinkWrap: true,
         itemCount: 10,
         itemBuilder: (context, index) {
-          return const BookItem();
+          // return const BookItem(
+          //   imageUrl: '',
+          // );
+          return Container(
+            child: Text('fs'),
+          );
         });
   }
 }

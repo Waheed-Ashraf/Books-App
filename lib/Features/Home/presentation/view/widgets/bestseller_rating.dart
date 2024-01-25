@@ -5,31 +5,36 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class BestSellerRating extends StatelessWidget {
   const BestSellerRating({
     super.key,
+    required this.bookRate,
+    required this.bookPadges,
   });
+
+  final num bookRate;
+  final int bookPadges;
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(
+        const Icon(
           FontAwesomeIcons.solidStar,
           color: Color(0xffFFDD4F),
           size: 12.8,
         ),
-        SizedBox(
+        const SizedBox(
           width: 6.3,
         ),
         Text(
-          '4.5',
+          "$bookRate",
           style: Styles.textStyle16,
         ),
-        SizedBox(
+        const SizedBox(
           width: 5,
         ),
         Opacity(
           opacity: .5,
           child: Text(
-            '(2390)',
+            '($bookPadges)',
             style: Styles.textStyle14,
           ),
         ),
