@@ -1,10 +1,12 @@
 import 'package:books_app/core/utils/app_router.dart';
-import 'package:books_app/core/utils/assets_data.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class FeaturedBooksItem extends StatelessWidget {
-  const FeaturedBooksItem({super.key});
+  const FeaturedBooksItem({super.key, required this.imageUrl});
+
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +18,17 @@ class FeaturedBooksItem extends StatelessWidget {
         },
         child: AspectRatio(
           aspectRatio: 2.7 / 4,
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage(AssetsData.testImage),
-              ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: CachedNetworkImage(
+              fit: BoxFit.fill,
+              // placeholder: (context, url) {
+              //   return const CustomLoadingIndicator();
+              // },
+              errorWidget: (context, url, error) {
+                return const Icon(Icons.error);
+              },
+              imageUrl: imageUrl,
             ),
           ),
         ),
