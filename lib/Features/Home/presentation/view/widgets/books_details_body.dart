@@ -1,13 +1,16 @@
+import 'package:books_app/Features/Home/data/models/book_model/book_item_model.dart';
 import 'package:books_app/Features/Home/presentation/view/widgets/action_button.dart';
 import 'package:books_app/Features/Home/presentation/view/widgets/bestseller_rating.dart';
-import 'package:books_app/Features/Home/presentation/view/widgets/books_details_image.dart';
 import 'package:books_app/Features/Home/presentation/view/widgets/custom_books_details_appbar.dart';
+import 'package:books_app/Features/Home/presentation/view/widgets/featuered_books_item.dart';
 import 'package:books_app/Features/Home/presentation/view/widgets/you_can_also_like_section.dart';
 import 'package:books_app/core/utils/text_style.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsBody extends StatelessWidget {
-  const BookDetailsBody({super.key});
+  const BookDetailsBody({super.key, required this.bookModel});
+
+  final BookItemModel bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +23,27 @@ class BookDetailsBody extends StatelessWidget {
               child: Column(
                 children: [
                   const CustomBookDetailsViewAppBar(),
-                  const BookDetailsImage(),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * .35,
+                    child: BooksImageItem(
+                      imageUrl:
+                          bookModel.volumeInfo.imageLinks?.thumbnail == null
+                              ? 'https://picsum.photos/200/300?random=1'
+                              : bookModel.volumeInfo.imageLinks!.thumbnail,
+                    ),
+                  ),
                   const SizedBox(
                     height: 16,
                   ),
-                  const Text(
-                    'The Jungle Book',
-                    style: Styles.textStyle30,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    child: Text(
+                      "${bookModel.volumeInfo.title}",
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.center,
+                      style: Styles.textStyle30,
+                    ),
                   ),
                   const SizedBox(
                     height: 4,
@@ -34,26 +51,24 @@ class BookDetailsBody extends StatelessWidget {
                   Opacity(
                     opacity: .7,
                     child: Text(
-                      'destofisky',
+                      bookModel.volumeInfo.authors![0],
                       style: Styles.textStyle18.copyWith(
                         fontStyle: FontStyle.italic,
                       ),
                     ),
                   ),
-                  const BestSellerRating(
-                    bookPadges: 22,
-                    bookRate: 0,
+                  BestSellerRating(
+                    bookPadges: bookModel.volumeInfo.ratingsCount ?? 0,
+                    bookRate: bookModel.volumeInfo.averageRating ?? 0,
                   ),
                   const SizedBox(
                     height: 16,
                   ),
                   const ActionButton(),
-                  const Expanded(
-                    child: SizedBox(
-                      height: 16,
-                    ),
+                  const SizedBox(
+                    height: 16,
                   ),
-                  const YouCanAlsoLikeSection(),
+                  YouCanAlsoLikeSection(bookModel: bookModel),
                   const SizedBox(
                     height: 32,
                   ),

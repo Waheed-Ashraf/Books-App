@@ -1,9 +1,11 @@
 import 'package:books_app/Features/Home/presentation/manager/NewestBooksCubit/newest_books_cubit.dart';
 import 'package:books_app/Features/Home/presentation/view/widgets/bestseller_item.dart';
+import 'package:books_app/core/utils/app_router.dart';
 import 'package:books_app/core/widgets/custom_error_widget.dart';
 import 'package:books_app/core/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class BestSellerListView extends StatelessWidget {
   const BestSellerListView({super.key});
@@ -20,15 +22,23 @@ class BestSellerListView extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               itemCount: state.newestBooksModel.length,
               itemBuilder: (context, index) {
-                return BookItem(
-                  bookModel: state.newestBooksModel[index],
+                return GestureDetector(
+                  onTap: () {
+                    GoRouter.of(context).push(AppRouter.kBookDetailsView,
+                        extra: state.newestBooksModel[index]);
+                  },
+                  child: BookItem(
+                    bookModel: state.newestBooksModel[index],
+                  ),
                 );
               },
             );
           } else if (state is NewestBooksFailuer) {
             return CustomErrorWidget(errMessage: state.errorMessage);
           } else {
-            return const CustomLoadingIndicator();
+            return CustomLoadingIndicator(
+              hight: .3,
+            );
           }
         },
       ),

@@ -27,27 +27,25 @@ class BookItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 6),
-      child: GestureDetector(
-        onTap: () {
-          GoRouter.of(context).push(AppRouter.kBookDetailsView);
-        },
-        child: SizedBox(
-          height: 107,
-          child: Row(
-            children: [
-              AspectRatio(
-                aspectRatio: 2.8 / 4,
-                child: BooksImageItem(
-                    imageUrl: bookModel.volumeInfo.imageLinks.thumbnail),
+      child: SizedBox(
+        height: 107,
+        child: Row(
+          children: [
+            AspectRatio(
+              aspectRatio: 2.8 / 4,
+              child: BooksImageItem(
+                imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail == null
+                    ? 'https://picsum.photos/200/300?random=1'
+                    : bookModel.volumeInfo.imageLinks!.thumbnail,
               ),
-              const SizedBox(
-                width: 25,
-              ),
-              BestSellerItemDetails(
-                bookModel: bookModel,
-              ),
-            ],
-          ),
+            ),
+            const SizedBox(
+              width: 25,
+            ),
+            BestSellerItemDetails(
+              bookModel: bookModel,
+            ),
+          ],
         ),
       ),
     );
