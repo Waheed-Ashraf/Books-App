@@ -34,7 +34,7 @@ class HomeRepoimp implements HomeRepo {
   Future<Either<Failure, List<BookItemModel>>> fetchFeaturedBooks() async {
     try {
       var data = await _apiService.get(
-          endPoint: 'volumes?Filtering=free-ebooks&q=sports');
+          endPoint: 'volumes?Filtering=free-ebooks&q=Artificial intelligence');
 
       List<BookItemModel> itemData = [];
       for (var element in data['items']) {

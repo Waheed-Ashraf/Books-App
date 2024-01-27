@@ -44,7 +44,7 @@ class _SplashBodyState extends State<SplashBody> {
             reverse: false,
           ),
           const Text(
-            "Books for the spotless minds",
+            "Books App",
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 18,
