@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SearchViewBody extends StatelessWidget {
-  const SearchViewBody({super.key, required this.bookModel});
+  const SearchViewBody({super.key, this.bookModel});
 
-  final BookItemModel bookModel;
+  final BookItemModel? bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -17,21 +17,14 @@ class SearchViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CustomSearchTextField(),
+          CustomSearchTextField(),
           const SizedBox(
             height: 8,
-          ),
-          const Text(
-            'Search Result',
-            style: Styles.textStyle16,
           ),
           const SizedBox(
             height: 8,
           ),
-          Expanded(
-              child: SearchResultListView(
-            bookModel: bookModel,
-          )),
+          const Expanded(child: SearchResultListView()),
         ],
       ),
     );

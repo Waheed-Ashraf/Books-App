@@ -1,12 +1,18 @@
+import 'package:books_app/Features/Search/presentation/Manager/SearchCubit/search_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomSearchTextField extends StatelessWidget {
-  const CustomSearchTextField({super.key});
+  CustomSearchTextField({
+    super.key,
+  });
+  final myController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: myController,
       decoration: InputDecoration(
         enabledBorder: buildOutlineInputBorder(),
         focusedBorder: buildOutlineInputBorder(),
@@ -14,7 +20,10 @@ class CustomSearchTextField extends StatelessWidget {
         suffixIcon: Padding(
           padding: const EdgeInsets.only(right: 8),
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              BlocProvider.of<SearchCubit>(context)
+                  .getSearchedBooks(searchedCategory: myController.text);
+            },
             icon: const Opacity(
               opacity: .8,
               child: Icon(

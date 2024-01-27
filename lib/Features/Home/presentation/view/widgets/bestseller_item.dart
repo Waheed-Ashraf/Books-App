@@ -1,9 +1,7 @@
 import 'package:books_app/Features/Home/data/models/book_model/book_item_model.dart';
 import 'package:books_app/Features/Home/presentation/view/widgets/bestseller_item_details.dart';
 import 'package:books_app/Features/Home/presentation/view/widgets/featuered_books_item.dart';
-import 'package:books_app/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class BookItem extends StatelessWidget {
   const BookItem({

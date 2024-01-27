@@ -20,14 +20,15 @@ class BestSellerItemDetails extends StatelessWidget {
         children: [
           Text(
             bookModel.volumeInfo.title!,
-            style: Styles.textStyle20.copyWith(
-              fontFamily: kGtSectraFine,
-            ),
+            style: Styles.textStyle20
+                .copyWith(fontFamily: kGtSectraFine, height: 1.3),
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
           ),
           Text(
-            bookModel.volumeInfo.authors![0],
+            bookModel.volumeInfo.authors?[0] == null
+                ? 'Unknown Author'
+                : bookModel.volumeInfo.authors![0],
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: Styles.textStyle14,
