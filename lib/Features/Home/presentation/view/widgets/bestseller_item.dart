@@ -9,18 +9,8 @@ class BookItem extends StatelessWidget {
   const BookItem({
     super.key,
     required this.bookModel,
-    // required this.imageUrl,
-    // required this.bookTitle,
-    // required this.bookAuter,
-    // required this.bookRate,
-    // required this.pageNumber
   });
 
-  // final String imageUrl;
-  // final String bookTitle;
-  // final String bookAuter;
-  // final dynamic bookRate;
-  // final int pageNumber;
   final BookItemModel bookModel;
 
   @override
